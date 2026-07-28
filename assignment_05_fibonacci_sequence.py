@@ -46,6 +46,64 @@
 
 #
 # =============================================================================
-# YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
+# PROGRAMMING FUNDAMENTALS — Assignment 5
+# Topic: Loops, Sequences, and Functions
+# =============================================================================
+#
+# TASK: Fibonacci Sequence Generator
+# =============================================================================
+
+
+def generate_fibonacci_terms(n):
+    sequence = []
+    a, b = 0, 1
+    for _ in range(n):
+        sequence.append(a)
+        a, b = b, a + b
+    return sequence
+
+
+def is_fibonacci_number(number):
+    if number < 0:
+        return False
+
+    a, b = 0, 1
+    while a <= number:
+        if a == number:
+            return True
+        a, b = b, a + b
+    return False
+
+
+def part_a_print_terms():
+    print("\n--- Part A: Print the First N Terms ---")
+    n = int(input("How many terms? "))
+
+    if n <= 0:
+        print("Error: N must be a positive integer.")
+        return
+
+    sequence = generate_fibonacci_terms(n)
+    sequence_text = " ".join(str(term) for term in sequence)
+    print(f"Fibonacci sequence: {sequence_text}")
+
+
+def part_b_check_number():
+    print("\n--- Part B: Check if a Number Belongs to the Sequence ---")
+    number = int(input("Enter a number to check: "))
+
+    if is_fibonacci_number(number):
+        print(f"{number} is a Fibonacci number.")
+    else:
+        print(f"{number} is NOT a Fibonacci number.")
+
+
+def main():
+    part_a_print_terms()
+    part_b_check_number()
+
+
+if __name__ == "__main__":
+    main()
 # =============================================================================
 
